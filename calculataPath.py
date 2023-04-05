@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+import time 
 
 class Djikstra:
     def __init__(self,distance):
@@ -8,6 +8,9 @@ class Djikstra:
     
 
     def minDistanceIndex(self):
+    # INPUT  : None
+    # OUTPUT : Return the Index of the list for which the distance is minimal
+     
         L=[]
         minIndex = 0
         minDist=np.max(self.data[:,1])
@@ -22,9 +25,15 @@ class Djikstra:
     
 
 
-    def initShortDistance(self,startNodeID, finishNodeID):
-    # Initialisation matrice distance
-        
+    def initDistanceMatrix(self,startNodeID):
+    # INPUT  : Starting Node
+    # OUTPUT : Matrix of distance for the Djikstra algorithm
+    # Initialization of the distance Matrix :
+    #       1st Column : Index
+    #       2nd Column : Mimimal distance from the starting node
+    #       3rd Column : Where does the fastest parh comes from 
+    #       4th Column : 1 if the environment of this node has already been studied, -1 if it hasn't
+
         data=np.ones((self.distance.shape[0],3))*-1
         self.distance.shape[1]
         myId=np.arange(0,self.distance.shape[0]).reshape(-1,1)
@@ -36,8 +45,10 @@ class Djikstra:
 
 
 
-    def shortestDistance(self,startNodeID, finishNodeID):
-        # Algorithme Djikstra
+    def calculateDistanceMatrix(self,startNodeID):
+   # INPUT  : starting Node
+   # OUTPUT : None
+   # Calculate the fastest distance 
         selectID=startNodeID
 
         
@@ -58,22 +69,24 @@ class Djikstra:
             selectID=minIndex    
             self.data[selectID,3]=1 
             
-        print(self.data)
+        #print(self.data)
 
 
-    def whichPath(self,startNodeID, finishNodeID):
+    def actualisePath(self,startNodeID, finishNodeID):
         
 
-        self.initShortDistance(startNodeID, finishNodeID)
-        self.shortestDistance(startNodeID,finishNodeID)
+        self.initDistanceMatrix(startNodeID)
+        self.calculateDistanceMatrix(startNodeID)
 
+        L=[]
         path=str(finishNodeID)
         nextNodeID=int(finishNodeID)
         while nextNodeID != startNodeID:
-            print(nextNodeID)
             nextNodeID=int(self.data[nextNodeID,2])
             path= str(nextNodeID) + "  ->  " + path
+            L.insert(0,str(nextNodeID))
         print(path)
+        return L
 
             
                 
@@ -104,14 +117,13 @@ for idStart in range(nbrRow):
     for noeudCible  in mapDataframe.loc[idStart]["liens"]:
 
         distance[idStart,int(noeudCible[0])] = noeudCible[1]
-        
-            
+#print(distance)
 
-print(distance)
 dji=Djikstra(distance)
-
-dji.whichPath(0,2)
-
+t1=time.time()
+dji.actualisePath(0,2)
+t2=time.time()
+print(t2-t1)
 
 
 
