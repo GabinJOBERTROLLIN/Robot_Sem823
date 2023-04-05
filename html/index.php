@@ -20,25 +20,26 @@
 			</div>
 			<div>
 				<?php
+					$file="/var/www/html/instruction.txt"
 					if(isset($_POST['stop'])) {
 						echo "STOP";
-						testPrint("STOP2");
+						ecrire($file,"p");
 					}
 					if(isset($_POST['avancer'])) {
 						echo "AVANCER";
-						testPrint("AVANCER2");
+						ecrire($file,"z");
 					}
 					if(isset($_POST['reculer'])) {
 						echo "RECULER";
-						testPrint("RECULER2");
+						ecrire($file,"s");
 					}
 					if(isset($_POST['gauche'])) {
 						echo "GAUCHE";
-						testPrint("RECULER2");
+						ecrire($file,"q");
 					}
 					if(isset($_POST['droite'])) {
 						echo "DROITE";
-						testPrint("DROITE2");
+						ecrire($file,"d");
 					}
 				?>
 			</div>
