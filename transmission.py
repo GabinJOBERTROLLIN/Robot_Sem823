@@ -28,8 +28,7 @@ def receive():
     uart.open()
 
     # Récupération de caracètres
-    for i in range(1,10) :
-        print(uart.read(1))
+    print(uart.read(1))
 
     uart.close()
 
@@ -52,11 +51,6 @@ def send(c):
     # Ecriture d'un caractère de test 'a'
     print("Envoi : [PC : Tx >> Rx FPGA] "+str(c))
     uart.write(c.encode('utf-8'))
-
-    # Reception d'un caractère du FPGA
-    print("Reception : [PC : Rx << Tx FPGA] ' ")
-    print(uart.read(1))
-    print("'")
 
     uart.close()
 
