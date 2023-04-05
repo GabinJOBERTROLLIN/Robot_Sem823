@@ -61,7 +61,7 @@ def send(c):
     uart.close()
 
 
-f=open("map.txt")
+f=open("/var/www/html/instruction.txt")
 instruction=f.read()
 send(instruction)
 
