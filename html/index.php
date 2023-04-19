@@ -19,21 +19,16 @@
 			<div>
 				<?php
 					$file="/var/www/html/instruction.txt";
-					$file="/var/www/html/instruction.txt";
 					if(isset($_POST['stop'])) {
-						ecrire($file,"p");
 						ecrire($file,"p");
 					}
 					if(isset($_POST['avancer'])) {
 						ecrire($file,"z");
-						ecrire($file,"z");
 					}
 					if(isset($_POST['reculer'])) {
 						ecrire($file,"s");
-						ecrire($file,"s");
 					}
 					if(isset($_POST['gauche'])) {
-						ecrire($file,"q");
 						ecrire($file,"q");
 					}
 					if(isset($_POST['droite'])) {
