@@ -5,7 +5,9 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<?php include_once("Scripts.php") ?>
+?php
+	include_once "Scripts.php"
+	?>
 	<header>
 		<h1><span id="robot-name">B0-P1</span> access point</h1>
 		<h2> < un robot autonome pour explorer de nouveaux horizons > </Un></h2>
@@ -18,32 +20,25 @@
 			</div>
 			<div>
 				<?php
-					$file="/var/www/html/instruction.txt";
-					$file="/var/www/html/instruction.txt";
 					if(isset($_POST['stop'])) {
-						ecrire($file,"p");
-						ecrire($file,"p");
+						echo "STOP";
+						testPrint("STOP2");
 					}
 					if(isset($_POST['avancer'])) {
-						ecrire($file,"z");
-						ecrire($file,"z");
+						echo "AVANCER";
+						testPrint("AVANCER2");
 					}
 					if(isset($_POST['reculer'])) {
-						ecrire($file,"s");
-						ecrire($file,"s");
+						echo "RECULER";
+						testPrint("RECULER2");
 					}
 					if(isset($_POST['gauche'])) {
-						ecrire($file,"q");
-						ecrire($file,"q");
+						echo "GAUCHE";
+						testPrint("RECULER2");
 					}
 					if(isset($_POST['droite'])) {
-						ecrire($file,"d");
-					}
-					if(isset($_POST['gauche 90°'])) {
-						ecrire($file,"a");
-					}
-					if(isset($_POST['droite 90°'])) {
-						ecrire($file,"e");
+						echo "DROITE";
+						testPrint("DROITE2");
 					}
 				?>
 			</div>
@@ -57,10 +52,6 @@
 					<div id="div-boutons">
 						<input type="submit" value="Gauche" name="gauche" id="gauche">
 						<input type="submit" value="Droite" name="droite" id="droite">
-					</div>
-					<div id="div-boutons-90">
-						<input type="submit" value="Gauche 90°" name="gauche 90°" id="gauche 90°">
-						<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
 					</div>
 					<input type="submit" value="Reculer" name="reculer" id="reculer">
 						<!-- <button id="stop">STOP</button>
