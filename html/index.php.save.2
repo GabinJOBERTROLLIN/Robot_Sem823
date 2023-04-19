@@ -5,7 +5,9 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<?php include_once("Scripts.php") ?>
+?php
+	include_once "Scripts.php"
+	?>
 	<header>
 		<h1><span id="robot-name">B0-P1</span> access point</h1>
 		<h2> < un robot autonome pour explorer de nouveaux horizons > </Un></h2>
@@ -18,21 +20,25 @@
 			</div>
 			<div>
 				<?php
-					$file="/var/www/html/instruction.txt";
 					if(isset($_POST['stop'])) {
-						ecrire($file,"p");
+						echo "STOP";
+						testPrint("STOP2");
 					}
 					if(isset($_POST['avancer'])) {
-						ecrire($file,"z");
+						echo "AVANCER";
+						testPrint("AVANCER2");
 					}
 					if(isset($_POST['reculer'])) {
-						ecrire($file,"s");
+						echo "RECULER";
+						testPrint("RECULER2");
 					}
 					if(isset($_POST['gauche'])) {
-						ecrire($file,"q");
+						echo "GAUCHE";
+						testPrint("RECULER2");
 					}
 					if(isset($_POST['droite'])) {
-						ecrire($file,"d");
+						echo "DROITE";
+						testPrint("DROITE2");
 					}
 				?>
 			</div>
