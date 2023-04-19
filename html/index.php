@@ -20,26 +20,27 @@
 			</div>
 			<div>
 				<?php
-					$file="/var/www/html/instruction.txt"
+					$file="/var/www/html/instruction.txt";
 					if(isset($_POST['stop'])) {
-						echo "STOP";
 						ecrire($file,"p");
 					}
 					if(isset($_POST['avancer'])) {
-						echo "AVANCER";
 						ecrire($file,"z");
 					}
 					if(isset($_POST['reculer'])) {
-						echo "RECULER";
 						ecrire($file,"s");
 					}
 					if(isset($_POST['gauche'])) {
-						echo "GAUCHE";
 						ecrire($file,"q");
 					}
 					if(isset($_POST['droite'])) {
-						echo "DROITE";
 						ecrire($file,"d");
+					}
+					if(isset($_POST['gauche 90°'])) {
+						ecrire($file,"a");
+					}
+					if(isset($_POST['droite 90°'])) {
+						ecrire($file,"e");
 					}
 				?>
 			</div>
@@ -53,6 +54,10 @@
 					<div id="div-boutons">
 						<input type="submit" value="Gauche" name="gauche" id="gauche">
 						<input type="submit" value="Droite" name="droite" id="droite">
+					</div>
+					<div id="div-boutons-90">
+						<input type="submit" value="Gauche 90°" name="gauche 90°" id="gauche 90°">
+						<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
 					</div>
 					<input type="submit" value="Reculer" name="reculer" id="reculer">
 						<!-- <button id="stop">STOP</button>
