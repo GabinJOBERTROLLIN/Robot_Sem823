@@ -18,21 +18,21 @@
 			</div>
 			<div>
 				<?php
-					$file="/var/www/html/instruction.txt";
 					if(isset($_POST['stop'])) {
-						ecrire($file,"p");
+						testPrint("STOP2");
 					}
 					if(isset($_POST['avancer'])) {
-						ecrire($file,"z");
+						testPrint("AVANCER2");
 					}
 					if(isset($_POST['reculer'])) {
-						ecrire($file,"s");
+						echo "RECULER";
+						testPrint("RECULER2");
 					}
 					if(isset($_POST['gauche'])) {
-						ecrire($file,"q");
+						testPrint("GAUCHE2");
 					}
-					if(isset($_POST['droite'])) {
-						ecrire($file,"d");
+					if(isset($_POST['droite'])
+						testPrint("DROITE2");
 					}
 				?>
 			</div>

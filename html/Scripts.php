@@ -12,6 +12,6 @@ fclose($handler);
 }
 
 function testPrint($val){
-    echo "$val"
+    echo "$val";
 }
 ?>

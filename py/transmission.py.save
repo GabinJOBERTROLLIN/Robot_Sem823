@@ -17,42 +17,37 @@ import time
 
 
 port_uart = "/dev/ttyS0"
-port_uart = "/dev/serial0"
 baudrate = 115200
 bytesize = 8
 
-
 def receive():
 
-	# Ouverture de la liaison UART
-	uart = serial.Serial(port_uart, baudrate, bytesize) #stopbits, serial.PARITY_NONE, stopbits, timeout, xonxoff, rtscts
-	uart.timeout = 0.1
+    # Ouverture de la liaison UART
+    uart = serial.Serial(port_uart, baudrate, bytesize) #stopbits, serial.PARITY_NONE, stopbits, timeout, xonxoff, rtscts
 
-	# Récupération de caracètres
-	msg = uart.read(100).decode()
-	if (msg != ''):
-		print("[... -> RASP] << " + str(msg))
+    # Récupération de caracètres
+    reception = uart.read(1)
 
-	uart.close()
+	    uart.close()
 
-	return msg
+	
 
 
 def send(c):
 
-	# Ouverture de la liaison UART
-	uart = serial.Serial(port_uart, baudrate, bytesize) #stopbits, serial.PARITY_NONE, stopbits, timeout, xonxoff, rtscts
+    # Ouverture de la liaison UART
+    uart = serial.Serial(port_uart, baudrate, bytesize) #stopbits, serial.PARITY_NONE, stopbits, timeout, xonxoff, rtscts
 
-	# Ecriture d'un caractère de test 'a'
-	print("[RASP -> ...] >> "+str(c))
-	uart.write(c.encode('utf-8'))
+    # Ecriture d'un caractère de test 'a'
+    print("Envoi : [PC : Tx >> Rx FPGA] "+str(c))
+    uart.write(c.encode('utf-8'))
 
-	uart.close()
+    uart.close()
 
 
 while 1:
 	# sleep
-	# time.sleep(0.1)
+	time.sleep(0.1)
 	
 	# lecture des instructions
 	f=open("/var/www/html/instruction.txt")
@@ -61,6 +56,7 @@ while 1:
 
 	# on envoie l'instruction
 	send(instruction)
-	
-	# on recoit les informations
-	receive()
+
+	# on lit dans l'uart
+	msg = receive()
+
