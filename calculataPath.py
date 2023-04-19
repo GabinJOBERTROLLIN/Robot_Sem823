@@ -1,6 +1,4 @@
-import pandas as pd
 import numpy as np
-import time 
 
 class Djikstra:
     def __init__(self,distance):
@@ -56,20 +54,21 @@ class Djikstra:
             minDistance=np.max(self.data)
             for floatNoeudsID in self.data[:,0]:
                 noeudsID=int(floatNoeudsID)
-                
+
                 if self.distance[int(selectID),noeudsID] !=-1 and noeudsID != selectID: # If a path exists betwenn the selected node and another node, and if the node has never been selected
                     
                     distance = self.distance[selectID,noeudsID]+self.data[selectID,1]
                     if distance < self.data[noeudsID,1] or self.data[noeudsID,1] ==-1 :
                         self.data[noeudsID,1]=distance
                         self.data[noeudsID,2]=selectID
-
-                  
+            
+              
             minIndex=self.minDistanceIndex()
             selectID=minIndex    
             self.data[selectID,3]=1 
+        print(self.data)
             
-        #print(self.data)
+        
 
 
     def actualisePath(self,startNodeID, finishNodeID):
@@ -93,37 +92,9 @@ class Djikstra:
 
         
 
-def strToList(a):
-
-    if isinstance(a,str):
-        noeuds = list(a.split(","))
-        noeudsFormat=[]
-        for noeud in noeuds:
-            noeudsFormat.append(list(noeud.split(":")))
-        return noeudsFormat
-    else:
-        print("Erreur : l'element "+str(a)+" nest pas un str")
-         
 
 
-data =pd.read_excel("map.xlsx")
-mapDataframe=pd.DataFrame(data, columns=["x","y","liens"])
-mapDataframe.loc[:,"liens"] = mapDataframe.loc[:,"liens"].apply(strToList,1)
 
-nbrRow=mapDataframe.shape[0]
-distance =np.array([[-1 for j in range(nbrRow)] for i in range(nbrRow)])
-for idStart in range(nbrRow):
-    distance[idStart,idStart] = 0
-    for noeudCible  in mapDataframe.loc[idStart]["liens"]:
-
-        distance[idStart,int(noeudCible[0])] = noeudCible[1]
-#print(distance)
-
-dji=Djikstra(distance)
-t1=time.time()
-dji.actualisePath(0,2)
-t2=time.time()
-print(t2-t1)
 
 
 
