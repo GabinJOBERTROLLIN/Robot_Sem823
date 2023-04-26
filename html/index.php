@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>B0-P1 access point</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style2.css">
 </head>
-<body class="pc">
+<body>
 	<?php include_once("Scripts.php") ?>
 	<header>
 		<h1><span id="robot-name">B0-P1</span> access point</h1>
@@ -117,45 +117,45 @@
 		}
 	</script>
 
+	<mobile>
+		<h2>
+			<p>B0-P1</p>
+		</h2>
+		<li>
+			<btn-menu id="btn-menu-boutons">
+				<img src="img/manette.png" class="icon-menu">
+			</btn-menu>
+			<btn-menu id="btn-menu-infos">
+				<img src="img/rapport.png" class="icon-menu">
+			</btn-menu>
+			<btn-menu id="btn-menu-cam">
+				<img src="img/camera.png" class="icon-menu">
+			</btn-menu>
+		</li>
+		<div-boutons>
+			<form action="index.php" method="post">
+				<div id="div-rotate">
+					<input type="submit" value="Avancer" name="avancer" id="avancer">
+				</div>
+				<div id="div-rotate">
+					<input type="submit" value="Gauche" name="gauche" id="gauche">
+					<input type="submit" value="STOP" name="stop" id="stop">
+					<input type="submit" value="Droite" name="droite" id="droite">
+				</div>
+				<div id="div-rotate">
+					<input type="submit" value="Reculer" name="reculer" id="reculer">
+				</div>
+				<p></p>
+				<div id="div-boutons-90">
+					<input type="submit" value="Gauche 90°" name="gauche 90°" id="gauche 90°">
+					<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
+				</div>
+				<div id="div-boutons-vitesse">
+					<input type="submit" value="Ralentir" name="ralentir" id="ralentir">
+					<input type="submit" value="Accélérer" name="accélérer" id="accélérer">
+				</div>
+			</form>
+		</div-boutons>
+	</mobile>
 </body>
-<mobile>
-	<h2>
-		<p>B0-P1</p>
-	</h2>
-	<li>
-		<btn-menu id="btn-menu-boutons">
-			<img src="img/manette.png" class="icon-menu">
-		</btn-menu>
-		<btn-menu id="btn-menu-infos">
-			<img src="img/rapport.png" class="icon-menu">
-		</btn-menu>
-		<btn-menu id="btn-menu-cam">
-			<img src="img/camera.png" class="icon-menu">
-		</btn-menu>
-	</li>
-	<div-boutons>
-		<form action="index.php" method="post">
-			<div id="div-rotate">
-				<input type="submit" value="Avancer" name="avancer" id="avancer">
-			</div>
-			<div id="div-rotate">
-				<input type="submit" value="Gauche" name="gauche" id="gauche">
-				<input type="submit" value="STOP" name="stop" id="stop">
-				<input type="submit" value="Droite" name="droite" id="droite">
-			</div>
-			<div id="div-rotate">
-				<input type="submit" value="Reculer" name="reculer" id="reculer">
-			</div>
-			<p></p>
-			<div id="div-boutons-90">
-				<input type="submit" value="Gauche 90°" name="gauche 90°" id="gauche 90°">
-				<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
-			</div>
-			<div id="div-boutons-vitesse">
-				<input type="submit" value="Ralentir" name="ralentir" id="ralentir">
-				<input type="submit" value="Accélérer" name="accélérer" id="accélérer">
-			</div>
-		</form>
-	</div-boutons>
-</mobile>
 </html>
