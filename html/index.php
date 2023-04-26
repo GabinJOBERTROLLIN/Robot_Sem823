@@ -75,7 +75,7 @@
 			<div class="pc blackbox" id="info-robot">
 				<h3>Infos robot</h3>
 				<div>
-					<p>speed : <span id="vitesse">0</span> km/h</p>
+					<p>speed : <span id="vitesse">0</span> m/h</p>
 					<p>LED : <span id="LED_bool">OFF</span></p>
 					<p>direction : <span id="direction">N/E</span></p>
 				</div>
