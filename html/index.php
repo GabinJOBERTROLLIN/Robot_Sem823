@@ -40,6 +40,12 @@
 					if(isset($_POST['droite 90°'])) {
 						ecrire($file,"e");
 					}
+					if(isset($_POST['accélérer'])) {
+						ecrire($file,"r");
+					}
+					if(isset($_POST['ralentir'])) {
+						ecrire($file,"f");
+					}
 				?>
 			</div>
 			<div class="blackbox" id="commandes-boutons">
@@ -58,14 +64,10 @@
 						<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
 					</div>
 					<input type="submit" value="Reculer" name="reculer" id="reculer">
-						<!-- <button id="stop">STOP</button>
+					<div id="div-boutons-vitesse">
+						<input type="submit" value="Ralentir" name="ralentir" id="ralentir">
+						<input type="submit" value="Accélérer" name="accélérer" id="accélérer">
 					</div>
-					<button id="avancer">Avancer tout droit</button>
-					<div id="div-boutons">
-						<button id="gauche">Tourner à gauche</button>
-						<button id="droite">Tourner à droite</button>
-					</div>
-					<button id="reculer">Reculer</button> -->
 				</form>
 			</div>
 		</div>
@@ -95,9 +97,25 @@
 				<div>
 					<input type="text" id="commande-texte" placeholder="Entrez votre commande ici">
 					<button id="envoyer">Envoyer</button>
+					<button type="button" onclick="updateData()">Montrer les données</button>
 				</div>
 			</div>
 		</div>
 	</main>
+
+	<script>
+		function updateData() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("vitesse").innerHTML = this.responseText;
+					setTimeout(function(){updateData();}, 1000)
+				}
+			};
+			xhttp.open("GET", "vitesse.txt", true);
+			xhttp.send();
+		}
+	</script>
+
 </body>
 </html>
