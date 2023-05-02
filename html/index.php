@@ -68,6 +68,7 @@
 						<input type="submit" value="Ralentir" name="ralentir" id="ralentir">
 						<input type="submit" value="Accélérer" name="accélérer" id="accélérer">
 					</div>
+					<!--<button onclick="ecrire('/var/www/html/instruction.txt','test')">Test</button>-->
 				</form>
 			</div>
 		</div>
@@ -103,18 +104,53 @@
 		</div>
 	</main>
 
+	<!--<script type="text/JavaScript">
+
+		function envoiCommande($file,$instruction)
+		{
+			$handler = fopen($file,"w") or die("Unable to open file"); //Ouvre le fichier
+			fwrite($handler, $instruction); //Ecrit l'instruction dans le fichier
+			fclose($handler); //Ferme le fichier
+    	
+			// get the URL
+			http = new XMLHttpRequest(); 
+			http.open("GET", url, true);
+			http.send(null);
+
+			// prevent form from submitting
+			return false;
+		}
+
+	</script>
+
+<form action="" onsubmit="return submitCouponCode();">
+   <input type="text" id="couponCode">
+   <input type="submit" value="Apply">
+</form>-->
 	<script>
 		function updateData() {
 			var xhttp = new XMLHttpRequest();
+			var url = "capteurs.json";
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById("vitesse").innerHTML = this.responseText;
+					var myCapteurs = JSON.parse(this.repsponseText)
+					document.getElementById("LED-bool").innerHTML = myCapteurs["ultrason"];
+					document.getElementById("vitesse").innerHTML = myCapteurs["vitesse"];
+					document.getElementById("direction").innerHTML = myCapteurs["direction"];
 					setTimeout(function(){updateData();}, 1000)
 				}
 			};
-			xhttp.open("GET", "vitesse.txt", true);
+			xhttp.open("GET", url, true);
 			xhttp.send();
 		}
+
+		<?php
+			error_reporting(E_ALL);
+			$data = $_POST['command'];
+			$f = fopen('file.txt', 'w+');
+			fwrite($f, $data);
+			fclose($f);
+		?>
 	</script>
 
 	<mobile>
