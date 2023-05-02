@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>B0-P1 access point</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style2.css">
 </head>
 <body>
 	<?php include_once("Scripts.php") ?>
@@ -11,8 +11,8 @@
 		<h2> < un robot autonome pour explorer de nouveaux horizons > </Un></h2>
 	</header>
 	<main>
-		<div class="left-column">
-			<div class="blackbox">
+		<div class="pc left-column">
+			<div class="pc blackbox">
 				<h3>Retour caméra</h3>
 				<p>La caméra est en cours de chargement...</p>
 			</div>
@@ -48,7 +48,7 @@
 					}
 				?>
 			</div>
-			<div class="blackbox" id="commandes-boutons">
+			<div class="pc blackbox" id="commandes-boutons">
 				<form action="index.php" method="post">
 					<h3>Commandes robot</h3>
 					<div id="div-stop">
@@ -72,16 +72,16 @@
 				</form>
 			</div>
 		</div>
-		<div class="right-column">
-			<div class="blackbox" id="info-robot">
+		<div class="pc right-column">
+			<div class="pc blackbox" id="info-robot">
 				<h3>Infos robot</h3>
 				<div>
-					<p>speed : <span id="vitesse">0</span> km/h</p>
+					<p>speed : <span id="vitesse">0</span> m/h</p>
 					<p>LED : <span id="LED_bool">OFF</span></p>
 					<p>direction : <span id="direction">N/E</span></p>
 				</div>
 			</div>
-			<div class="blackbox" id="commande-specifique">
+			<div class="pc blackbox" id="commande-specifique">
 				<div>
 					<div id="logs">
 						<p>></p>
@@ -153,5 +153,45 @@
 		?>
 	</script>
 
+	<mobile>
+		<h2>
+			<p>B0-P1</p>
+		</h2>
+		<li>
+			<btn-menu id="btn-menu-boutons">
+				<img src="img/manette.png" class="icon-menu">
+			</btn-menu>
+			<btn-menu id="btn-menu-infos">
+				<img src="img/rapport.png" class="icon-menu">
+			</btn-menu>
+			<btn-menu id="btn-menu-cam">
+				<img src="img/camera.png" class="icon-menu">
+			</btn-menu>
+		</li>
+		<div-boutons>
+			<form action="index.php" method="post">
+				<div id="div-rotate">
+					<input type="submit" value="Avancer" name="avancer" id="avancer">
+				</div>
+				<div id="div-rotate">
+					<input type="submit" value="Gauche" name="gauche" id="gauche">
+					<input type="submit" value="STOP" name="stop" id="stop">
+					<input type="submit" value="Droite" name="droite" id="droite">
+				</div>
+				<div id="div-rotate">
+					<input type="submit" value="Reculer" name="reculer" id="reculer">
+				</div>
+				<p></p>
+				<div id="div-boutons-90">
+					<input type="submit" value="Gauche 90°" name="gauche 90°" id="gauche 90°">
+					<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
+				</div>
+				<div id="div-boutons-vitesse">
+					<input type="submit" value="Ralentir" name="ralentir" id="ralentir">
+					<input type="submit" value="Accélérer" name="accélérer" id="accélérer">
+				</div>
+			</form>
+		</div-boutons>
+	</mobile>
 </body>
 </html>
