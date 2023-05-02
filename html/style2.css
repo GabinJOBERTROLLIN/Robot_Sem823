@@ -1,0 +1,199 @@
+@font-face {
+	font-family: 'Monocraft';
+	src: url('Monocraft.ttf') format('truetype');
+  }
+
+body {
+	background-color :aquamarine;
+	margin: 0;
+	padding: 0;
+	font-family: Monocraft,Arial, sans-serif;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 20vh;
+}
+
+h1 {
+	font-family: Monocraft, Arial, sans-serif;
+	font-size: 24px;
+	margin: 10;
+	color: black;
+}
+
+h2 {
+	font-size: 24px;
+	margin: 0;
+	color: darkcyan;
+}
+
+main {
+	display: flex;
+	height: 70vh;
+}
+
+.left-column {
+	flex: 1;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	background-color :turquoise;
+}
+
+.right-column {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	padding: 20px;
+	background-color:lightseagreen;
+}
+
+.blackbox {
+	font-family: Monocraft, Arial, sans-serif;
+	background-color: #000;
+	color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+#robot-name {
+	font-size: 72px;
+	margin: 0;
+	color: crimson;
+}
+
+h3 {
+	letter-spacing: 8px;
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	margin-top: 0;
+	color: aquamarine;
+}
+
+video {
+	max-width: 100%;
+}
+
+
+#vitesse, #LED_bool, #direction {
+	color:crimson;
+	font-weight: bold;
+}
+
+input[type="text"] {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 5px;
+	background-color: #333;
+	border: 0px solid white;
+	font-family: Monocraft, Arial, sans-serif;
+	color: white;
+}
+
+button,input[type="submit"] {
+	background-color: #555;
+	color: #fff;
+	border: none;
+	padding: 20px 20px;
+	font-size: 18px;
+	margin: 5px;
+	cursor: pointer;
+	font-family: Monocraft, Arial, sans-serif;
+
+}
+
+button,input[type="submit"]:hover {
+	background-color: #333;
+}
+
+#commandes-boutons {
+	text-align: center;
+}
+
+#div-stop {
+	display: block;
+	justify-content: center;
+}
+
+#div-rotate,#div-boutons-vitesse,#div-boutons-90 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+
+#stop {
+	padding: 30px 40px;
+	background-color: #f00;
+	font-size: 24px;
+}
+
+#stop:hover {
+	background-color: #c00;
+}
+
+
+mobile {
+	display: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+	.pc,main,header {
+		display: none;
+	}
+	
+	mobile {
+		visibility: visible;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 100vh;
+		background-color :turquoise;
+	}
+	
+	li {
+		float:left;
+		display: flex;
+		width: 100%;
+		height: 15%;
+	}
+	
+	btn-menu {
+		display: flex;
+		width: 33.333%;
+		align-items: center;
+		justify-content: center;
+		background-color: aquamarine;
+	}
+	
+	#btn-menu-boutons {
+		background-color :turquoise;
+	}
+	
+	.icon-menu {
+		width: 10vmin;
+	}
+	btn-menu:hover{
+		background-color :turquoise;
+	}
+	
+	div-boutons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		color: black;
+		padding: 10%;
+	}
+}
