@@ -66,11 +66,12 @@ class Djikstra:
             minIndex=self.minDistanceIndex()
             selectID=minIndex    
             self.data[selectID,3]=1 
-        print(self.data)
+        # PRINT A DECOMMENTER
+        # print(self.data)
             
         
-
-
+    
+ 
     def actualisePath(self,startNodeID, finishNodeID):
         
 
