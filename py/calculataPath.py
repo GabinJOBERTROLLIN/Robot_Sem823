@@ -78,7 +78,7 @@ class Djikstra:
         self.initDistanceMatrix(startNodeID)
         self.calculateDistanceMatrix(startNodeID)
 
-        L=[]
+        L=[str(finishNodeID)]
         path=str(finishNodeID)
         nextNodeID=int(finishNodeID)
         while nextNodeID != startNodeID:
@@ -86,9 +86,10 @@ class Djikstra:
             path= str(nextNodeID) + "  ->  " + path
             L.insert(0,str(nextNodeID))
         print(path)
+        
         return L
 
-            
+
                 
 
         

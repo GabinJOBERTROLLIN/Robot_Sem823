@@ -59,20 +59,21 @@ class DicoBOT1():
         else:
             decoded_entry = {key["cmd"][0]:None}
         return decoded_entry
+    
+    def test():
+        #Exemple de fonctionnement
+        BOT1 = DicoBOT1('dictionnary.json')
 
-#Exemple de fonctionnement
-BOT1 = DicoBOT1('dictionnary.json')
+        #Encodage d'un message pour émission dans l'UART :
+        msg_tosend = BOT1.encode('ultrason',120)
+        print(msg_tosend)
+        #Decodage du message pour traitement dans l'UART :
+        msg_received = BOT1.decode(msg_tosend)
+        print(msg_received)
 
-#Encodage d'un message pour émission dans l'UART :
-msg_tosend = BOT1.encode('ultrason',120)
-print(msg_tosend)
-#Decodage du message pour traitement dans l'UART :
-msg_received = BOT1.decode(msg_tosend)
-print(msg_received)
-
-#Avec une commande quelconque :
-msg_tosend = BOT1.encode('stop')
-print(msg_tosend)
-#Decodage du message pour traitement dans l'UART :
-msg_received = BOT1.decode(msg_tosend)
-print(msg_received)
+        #Avec une commande quelconque :
+        msg_tosend = BOT1.encode('stop')
+        print(msg_tosend)
+        #Decodage du message pour traitement dans l'UART :
+        msg_received = BOT1.decode(msg_tosend)
+        print(msg_received)

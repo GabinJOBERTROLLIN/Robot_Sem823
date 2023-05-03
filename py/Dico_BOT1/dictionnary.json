@@ -69,10 +69,21 @@
             "unit":""
         },
         {
-            "description":"Tourner avec angle",
+            "description":"Tourner 90° a droite",
             "id":6,
-            "cmd":["tourner"],
-            "param":"angle",
+            "cmd":["D"],
+            "param":"",
+            "content_size":0,
+            "cmd_serializer":"??? \r",
+            "max_unit":"",
+            "min_unit":"",
+            "unit":""
+        },
+        {
+            "description":"Tourner 90° a gauche",
+            "id":6,
+            "cmd":["G"],
+            "param":"",
             "content_size":0,
             "cmd_serializer":"??? \r",
             "max_unit":"",
