@@ -85,7 +85,7 @@ class Djikstra:
             nextNodeID=int(self.data[nextNodeID,2])
             path= str(nextNodeID) + "  ->  " + path
             L.insert(0,str(nextNodeID))
-        print(path)
+        # print(path)
         
         return L
 

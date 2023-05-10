@@ -91,6 +91,17 @@
             "unit":""
         },
         {
+            "description":"Demi-Tour",
+            "id":6,
+            "cmd":["R"],
+            "param":"",
+            "content_size":0,
+            "cmd_serializer":"??? \r",
+            "max_unit":"",
+            "min_unit":"",
+            "unit":""
+        },
+        {
             "description":"Capteur ultrason",
             "id":128,
             "cmd":["ultrason"],
@@ -111,6 +122,28 @@
             "max_unit":"10",
             "min_unit":"0",
             "unit":"W"
+        },
+        {
+            "description":"Chemin complet que le robot doit effectuer",
+            "id":201,
+            "cmd":["chemin"],
+            "param":"",
+            "content_size":1,
+            "cmd_serializer":"",
+            "max_unit":"100",
+            "min_unit":"0",
+            "unit":""
+        },
+        {
+            "description":"Chemin complet que le robot doit effectuer",
+            "id":202,
+            "cmd":["direction"],
+            "param":"",
+            "content_size":1,
+            "cmd_serializer":"",
+            "max_unit":"100",
+            "min_unit":"0",
+            "unit":""
         }
     ] 
 }
