@@ -6,7 +6,7 @@ from threading import Thread
 from calculataPath import Djikstra
 from QRCode import RecogniseQr
 import Dico_BOT1.DicoBOT1 as UART
-import Dico_BOT1.transmission as transmission
+
 
 
 
@@ -123,8 +123,9 @@ class BotMaster():
     #          by scanning QR code and sending information to the microcontroller using UART.
 
         BOT1 = UART.DicoBOT1('py\Dico_BOT1\dictionnary.json')
+        BOT2 = UART.DicoBOT1('py\Dico_BOT1\dictionnary.json')
         distance = self.excelToAdjacencyMatrix("py\map.xlsx")
-        thread = Thread(target = transmission)
+        
         dji = Djikstra(distance)
         path = dji.actualisePath(startNode,endNode)
         msg_tosend = BOT1.addData('chemin',path)
@@ -166,6 +167,7 @@ class BotMaster():
                     else:
                         #Encodage d'un message pour émission dans l'UART :
                         msg_tosend = BOT1.encodeDecode(directionAngle[0])
+                        msg_tosend = BOT2.encodeDecode(directionAngle[0])
                         
                         print(msg_tosend)
                         #print("TOURNE DE 90 a " + directionAngle[0])
