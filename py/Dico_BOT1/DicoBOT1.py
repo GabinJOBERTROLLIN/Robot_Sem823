@@ -6,11 +6,7 @@ class DicoBOT1():
         with open(file, 'r') as file:
             self.json_dict = json.load(file)
         self.end_char = chr(255)
-<<<<<<< HEAD
         self.json_path = "./Robot_Sem823/py/Dico_BOT1/capteurs.json"
-=======
-        self.json_path = "py\Dico_BOT1\capteurs.json"
->>>>>>> 8c1861a252f8ca971da00b35b994c3a861acd689
 
 
     def print(self):
