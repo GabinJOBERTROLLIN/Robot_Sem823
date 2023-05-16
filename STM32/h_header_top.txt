@@ -1,0 +1,19 @@
+#ifndef _DICTIONNARY_H
+#define _DICTIONNARY_H
+
+// Definition du format des clés
+struct command_key {
+    int max_unit;
+    int min_unit;
+    int id;
+    int content_size;  
+    char decription[20];
+    char param[20];
+    char cmd_serializer[30];
+    char unit[5];
+    char param[10];
+    char cmd[5][10];
+};
+typedef struct command_key command_key;
+
+// CONSTANT STRUCT ARRAY HERE

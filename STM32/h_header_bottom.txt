@@ -1,0 +1,9 @@
+
+
+// Prototypes des fonction
+int BOT1_encode(int, int , unsigned char*, unsigned char*);
+
+int BOT1_decode(unsigned char *, unsigned char *);
+
+
+#endif
