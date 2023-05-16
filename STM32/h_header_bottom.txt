@@ -1,8 +1,12 @@
 
 
 // Prototypes des fonction
-int BOT1_encode(int, int , unsigned char*, unsigned char*);
+float BOT1_decodec_tofloat(int , unsigned char );
+int BOT1_decodec_toint(int , unsigned char );
+unsigned char BOT1_convert_float(int , float );
+unsigned char BOT1_convert_int(int , int );
 
+int BOT1_encode(int, int , unsigned char*, unsigned char*);
 int BOT1_decode(unsigned char *, unsigned char *);
 
 
