@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from threading import Thread
 
+
 from calculataPath import Djikstra
 from QRCode import RecogniseQr
 import Dico_BOT1.DicoBOT1 as UART
@@ -167,7 +168,7 @@ class BotMaster():
                     else:
                         #Encodage d'un message pour émission dans l'UART :
                         msg_tosend = BOT1.encodeDecode(directionAngle[0])
-                        msg_tosend = BOT2.encodeDecode(directionAngle[0])
+                        BOT1.writeInstruction(directionAngle[0])
                         
                         print(msg_tosend)
                         #print("TOURNE DE 90 a " + directionAngle[0])
