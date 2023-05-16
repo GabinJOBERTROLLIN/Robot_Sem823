@@ -6,7 +6,11 @@ class DicoBOT1():
         with open(file, 'r') as file:
             self.json_dict = json.load(file)
         self.end_char = chr(255)
+<<<<<<< HEAD
         self.json_path = "./Robot_Sem823/py/Dico_BOT1/capteurs.json"
+=======
+        self.json_path = "py\Dico_BOT1\capteurs.json"
+>>>>>>> 8c1861a252f8ca971da00b35b994c3a861acd689
 
 
     def print(self):
@@ -32,6 +36,24 @@ class DicoBOT1():
         str_tosend += self.end_char
         return str_tosend
     
+    def addData(self,key,data):
+    #add data to json (not ready to be sent by UART)
+        with open(self.json_path,'r') as outfile:
+            content = json.load(outfile)
+        content[key]=data
+
+        with open(self.json_path,'w') as outfile:   
+            json.dump(content,outfile)
+            print("voici le content" +str(content))
+
+
+    def encodeDecode(self,cmd,val=0):
+    #encode and decode
+        ret = self.encode(cmd,val)
+        print(ret)
+        return self.decode(ret)
+    
+
     def decode(self, data_chain):
     #Lecture d'un stream de données issues de l'UART et écriture dans un fichier capteurs.json
     #On part du principe pour le moment que les commandes sont envoyés une à une
@@ -58,21 +80,36 @@ class DicoBOT1():
                 json.dump(content, outfile)
         else:
             decoded_entry = {key["cmd"][0]:None}
+            with open(self.json_path,'r') as outfile:
+                content = json.load(outfile)
+            #Actualisation des nouvelles entrées
+            for k in decoded_entry:
+                content[k] = decoded_entry[k]
+            #Renvoit sous json
+            with open(self.json_path,'w') as outfile:
+                json.dump(content, outfile)
         return decoded_entry
+    
+    def test():
+        #Exemple de fonctionnement
+        BOT1 = DicoBOT1('py\Dico_BOT1\dictionnary.json')
 
+<<<<<<< HEAD
 #Exemple de fonctionnement
 BOT1 = DicoBOT1('./Robot_Sem823/py/Dico_BOT1/dictionnary.json')
+=======
+        #Encodage d'un message pour émission dans l'UART :
+        msg_tosend = BOT1.encode('ultrason',120)
+        print("tosend"+str(msg_tosend))
+        #Decodage du message pour traitement dans l'UART :
+        msg_received = BOT1.decode(msg_tosend)
+        print(msg_received)
+>>>>>>> 8c1861a252f8ca971da00b35b994c3a861acd689
 
-#Encodage d'un message pour émission dans l'UART :
-msg_tosend = BOT1.encode('ultrason',120)
-print(msg_tosend)
-#Decodage du message pour traitement dans l'UART :
-msg_received = BOT1.decode(msg_tosend)
-print(msg_received)
-
-#Avec une commande quelconque :
-msg_tosend = BOT1.encode('stop')
-print(msg_tosend)
-#Decodage du message pour traitement dans l'UART :
-msg_received = BOT1.decode(msg_tosend)
-print(msg_received)
+        #Avec une commande quelconque :
+        msg_tosend = BOT1.encode('stop')
+        print(msg_tosend)
+        #Decodage du message pour traitement dans l'UART :
+        msg_received = BOT1.decode(msg_tosend)
+        print(msg_received)
+DicoBOT1.test()
