@@ -123,8 +123,8 @@ class BotMaster():
     # GOAL   : Calculate the fastest path between the starting and ending node and drive the robot from the start to the end
     #          by scanning QR code and sending information to the microcontroller using UART.
 
-        BOT1 = UART.DicoBOT1('Dico_BOT1\dictionnary.json')
-        BOT2 = UART.DicoBOT1('Dico_BOT1\dictionnary.json')
+        BOT1 = UART.DicoBOT1('Dico_BOT1/capteurs.json')
+        BOT2 = UART.DicoBOT1('Dico_BOT1/capteurs.json')
         #distance = self.excelToAdjacencyMatrix("py\map.xlsx")
         distance = importExcel.ImportExcel("map.xlsx").excelToAdjacencyMatrix()
         dji = Djikstra(distance)

@@ -6,7 +6,8 @@ class DicoBOT1():
         with open(file, 'r') as file:
             self.json_dict = json.load(file)
         self.end_char = chr(255)
-        self.json_path = "Dico_BOT1\dictionnary.json"
+
+        self.json_path = "Dico_BOT1/dictionnary.json"
         self.instructionPath = "/var/www/html/instruction.txt"
 
 
@@ -35,11 +36,11 @@ class DicoBOT1():
     
     def addData(self,key,data):
     #add data to json (not ready to be sent by UART)
-        with open(self.json_path,'r') as outfile:
+        with open(self.json_dict,'r') as outfile:
             content = json.load(outfile)
         content[key]=data
 
-        with open(self.json_path,'w') as outfile:   
+        with open(self.json_dict,'w') as outfile:   
             json.dump(content,outfile)
             print("voici le content" +str(content))
 
@@ -109,4 +110,4 @@ class DicoBOT1():
         #Decodage du message pour traitement dans l'UART :
         msg_received = BOT1.decode(msg_tosend)
         print(msg_received)
-DicoBOT1.test()
+#DicoBOT1.test()
