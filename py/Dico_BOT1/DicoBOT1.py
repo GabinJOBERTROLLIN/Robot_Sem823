@@ -6,7 +6,7 @@ class DicoBOT1():
         with open(file, 'r') as file:
             self.json_dict = json.load(file)
         self.end_char = chr(255)
-        self.json_path = "Dico_BOT1\dictionnary.json"
+        self.json_path = "dictionnary.json"
         self.instructionPath = "/var/www/html/instruction.txt"
 
 
