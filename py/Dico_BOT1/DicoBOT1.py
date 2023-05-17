@@ -39,10 +39,12 @@ class DicoBOT1():
     #add data to json (not ready to be sent by UART)
         with open(self.file,'r') as outfile:
             content = json.load(outfile)
+            #content(json.loads(content))
+            
         content[key]=data
 
         with open(self.file,'w') as outfile:   
-            json.dump(str(content),outfile)
+            json.dump(content,outfile)
             print("voici le content" +str(content))
 
     def writeInstruction(self,data):
