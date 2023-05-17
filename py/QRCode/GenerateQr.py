@@ -1,5 +1,6 @@
 import qrcode
 import pandas as pd
+import importExcel
 
 def strToList(a):
     if isinstance(a,str):
@@ -47,8 +48,8 @@ def generate():
     numeros = list(range(9))
 
     # Créer un dictionnaire avec les directions du voisinage de 4 pour chaque numéro
-    
-    voisinage = excelToVoisinage("py\map.xlsx")
+    voisinage = importExcel.ImportExcel("py\map.xlsx").excelToVoisinage()
+    #voisinage = excelToVoisinage("py\map.xlsx")
     #print(voisinage)
 
     # Parcourir les numéros et générer les codes QR correspondants

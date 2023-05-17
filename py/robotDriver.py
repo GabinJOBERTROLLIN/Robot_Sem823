@@ -7,7 +7,7 @@ from threading import Thread
 from calculataPath import Djikstra
 from QRCode import RecogniseQr
 import Dico_BOT1.DicoBOT1 as UART
-
+import importExcel
 
 
 
@@ -125,8 +125,8 @@ class BotMaster():
 
         BOT1 = UART.DicoBOT1('py\Dico_BOT1\dictionnary.json')
         BOT2 = UART.DicoBOT1('py\Dico_BOT1\dictionnary.json')
-        distance = self.excelToAdjacencyMatrix("py\map.xlsx")
-        
+        #distance = self.excelToAdjacencyMatrix("py\map.xlsx")
+        distance = importExcel.ImportExcel("py\map.xlsx").excelToAdjacencyMatrix()
         dji = Djikstra(distance)
         path = dji.actualisePath(startNode,endNode)
         msg_tosend = BOT1.addData('chemin',path)
