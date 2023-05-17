@@ -6,7 +6,7 @@ class DicoBOT1():
         with open(file, 'r') as file:
             self.json_dict = json.load(file)
         self.end_char = chr(255)
-        self.json_path = "dictionnary.json"
+        self.json_path = "Dico_BOT1\dictionnary.json"
         self.instructionPath = "/var/www/html/instruction.txt"
 
 
@@ -16,12 +16,7 @@ class DicoBOT1():
             print(type(k),type(self.json_dict[k]))
             for i,v in enumerate(self.json_dict[k]):
                 print(v,type(v))
-    def convert_tochar(self, val, key):
-        delta = 253/(key["max_unit"]-key["min_unit"])
-        val = val*delta + 1
-        return chr(round(val))
-    
-    
+
     def encode(self, cmd, val=0):
     #Préparation d'une commande pour l'émission par UART
     #La commande fournit correspond au "cmd" du json
@@ -34,7 +29,7 @@ class DicoBOT1():
         #Formatage de la commande : modèle [cmd id][content][cara de fin]
         str_tosend = chr(key["id"])
         if key["content_size"] > 0:
-            str_tosend += self.convert_tochar(val,key)
+            str_tosend += chr(val)
         str_tosend += self.end_char
         return str_tosend
     
