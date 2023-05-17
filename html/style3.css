@@ -78,8 +78,11 @@ h3 {
 	color: aquamarine;
 }
 
-video {
-	max-width: 100%;
+a {
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+	align-items:center;
 }
 
 
@@ -141,59 +144,4 @@ button,input[type="submit"]:hover {
 	background-color: #c00;
 }
 
-
-mobile {
-	display: none;
-}
-
-@media screen and (max-width: 1000px) {
-
-	.pc,main,header {
-		display: none;
-	}
-	
-	mobile {
-		visibility: visible;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		height: 100vh;
-		background-color :turquoise;
-	}
-	
-	li {
-		float:left;
-		display: flex;
-		width: 100%;
-		height: 15%;
-	}
-	
-	btn-menu {
-		display: flex;
-		width: 33.333%;
-		align-items: center;
-		justify-content: center;
-		background-color: aquamarine;
-	}
-	
-	#btn-menu-boutons {
-		background-color :turquoise;
-	}
-	
-	.icon-menu {
-		width: 10vmin;
-	}
-	btn-menu:hover{
-		background-color :turquoise;
-	}
-	
-	div-boutons {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-		height: 100%;
-		color: black;
-		padding: 10%;
-	}
 }
