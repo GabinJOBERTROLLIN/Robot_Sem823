@@ -41,7 +41,7 @@ class DicoBOT1():
         content[key]=data
 
         with open(self.json_dict,'w') as outfile:   
-            json.dump(content,outfile)
+            json.dump(str(content),outfile)
             print("voici le content" +str(content))
 
     def writeInstruction(self,data):
