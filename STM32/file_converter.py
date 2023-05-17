@@ -4,13 +4,13 @@ import json
 #==============================================
 #  
 #
-header_top = "./c_files/h_header_top.txt"
+header_top = "./STM32/h_header_top.txt"
 #----------------------------------------------
-header_bot = "./c_files/h_header_bottom.txt"
+header_bot = "./STM32/h_header_bottom.txt"
 #----------------------------------------------
-json_file = "dictionnary.json"
+json_file = "./py/Dico_BOT1/dictionnary.json"
 #----------------------------------------------
-c_file = "./c_files/dictionnary.h"
+c_file = "./STM32/dictionnary.h"
 #----------------------------------------------
 
 def add_inttoc(i):
@@ -88,8 +88,6 @@ for cmd_list in json_dict["embedded_cmd"]:
     cmd_for_c += add_strtoc(cmd_list["cmd_serializer"])
     cmd_for_c += ","
     cmd_for_c += add_strtoc(cmd_list["unit"])
-    cmd_for_c += ","
-    cmd_for_c += add_strtoc(cmd_list["param"])
     cmd_for_c += ","
     cmd_for_c += add_tabtoc(cmd_list["cmd"])
     cmd_for_c += "}"

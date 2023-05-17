@@ -4,10 +4,66 @@
 
 // Implémentations des fonctions de traitement
 
-//A faire : 
-// - Faire en sorte que les fonctions renvoit un pointeur directement
-// - Faire en sorte que la valeur '\0' = char 0 = uchar 0 soit utilisable par le code !
+//Fonction de conversion d'un int sur un octet pour émission sur UART
+unsigned char BOT1_convert_int(int id, int itoconv){
+	int index = -1;
+	for(int i=0;i<CMD_TABSIZE;i++){
+		if(id == TAB_CMD[i].id){
+			index = i;
+			break;
+		}
+	}
+	float delta = (float)253/(TAB_CMD[index].max_unit - TAB_CMD[index].min_unit);
+	float val = (delta*itoconv)+1;
+	unsigned char utf8_val = (unsigned char)val;
+	return utf8_val;
+}
 
+//Fonction de conversion d'un float sur un octet pour émission sur UART
+unsigned char BOT1_convert_float(int id, float ftoconv){
+	int index = -1;
+	for(int i=0;i<CMD_TABSIZE;i++){
+		if(id == TAB_CMD[i].id){
+			index = i;
+			break;
+		}
+	}
+	float delta = (float)253/(TAB_CMD[index].max_unit - TAB_CMD[index].min_unit);
+	float val = (delta*ftoconv)+1;
+	unsigned char utf8_val = (unsigned char)val;
+	return utf8_val;
+}
+
+//Fonction de conversion d'un charactere sur un int pour traitement en interne
+int BOT1_decodec_toint(int id, unsigned char c){
+	int index = -1;
+	for(int i=0;i<CMD_TABSIZE;i++){
+		if(id == TAB_CMD[i].id){
+			index = i;
+			break;
+		}
+	}
+	float delta = (float)(TAB_CMD[index].max_unit - TAB_CMD[index].min_unit)/253;
+	
+	int val = (c-1)*delta;
+
+	return val;
+}
+
+//Fonction de conversion d'un charactere sur un float pour traitement en interne
+float BOT1_decodec_tofloat(int id, unsigned char c){
+	int index = -1;
+	for(int i=0;i<CMD_TABSIZE;i++){
+		if(id == TAB_CMD[i].id){
+			index = i;
+			break;
+		}
+	}
+	float delta = (float)(TAB_CMD[index].max_unit - TAB_CMD[index].min_unit)/253;
+	float val = (c-1)*delta;
+
+	return val;
+}
 
 // Fonction d'encodage des données
 // Renvoit le message à transmettre dans l'UART
