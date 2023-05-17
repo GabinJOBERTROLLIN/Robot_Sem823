@@ -89,8 +89,6 @@ for cmd_list in json_dict["embedded_cmd"]:
     cmd_for_c += ","
     cmd_for_c += add_strtoc(cmd_list["unit"])
     cmd_for_c += ","
-    cmd_for_c += add_strtoc(cmd_list["param"])
-    cmd_for_c += ","
     cmd_for_c += add_tabtoc(cmd_list["cmd"])
     cmd_for_c += "}"
     if i < n_cmd-1:
