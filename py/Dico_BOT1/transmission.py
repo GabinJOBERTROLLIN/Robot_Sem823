@@ -36,7 +36,7 @@ while 1:
 
     # on envoie l'instruction
     send(instruction)
-    
+            
     # on recoit les informations
     receive()
 

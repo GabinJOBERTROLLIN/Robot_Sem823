@@ -1,7 +1,16 @@
 {
-    "cmd_list" : ["description","id","cmd","param","content_size","cmd_serializer","max_unit","min_unit","unit"],
-
-    "embedded_cmd" :[
+    "cmd_list": [
+        "description",
+        "id",
+        "cmd",
+        "param",
+        "content_size",
+        "cmd_serializer",
+        "max_unit",
+        "min_unit",
+        "unit"
+    ],
+    "embedded_cmd": [
         {
             "description":"Arret d'urgence",
             "id":1,
@@ -135,15 +144,30 @@
             "unit":""
         },
         {
-            "description":"Chemin complet que le robot doit effectuer",
-            "id":202,
-            "cmd":["direction"],
-            "param":"",
-            "content_size":1,
-            "cmd_serializer":"",
-            "max_unit":"100",
-            "min_unit":"0",
-            "unit":""
+            "description": "Chemin complet que le robot doit effectuer",
+            "id": 202,
+            "cmd": [
+                "direction"
+            ],
+            "param": "",
+            "content_size": 1,
+            "cmd_serializer": "",
+            "max_unit": "100",
+            "min_unit": "0",
+            "unit": ""
         }
-    ] 
+    ],
+    "ultrason": 185.882,
+    "p": null,
+    "chemin": [
+        "0",
+        "6",
+        "7",
+        "4",
+        "2",
+        "3",
+        "5"
+    ],
+    "direction": 1.961,
+    "D": null
 }
