@@ -4,13 +4,13 @@ import json
 #==============================================
 #  
 #
-header_top = "./Robot_Sem823/STM32/h_header_top.txt"
+header_top = "./STM32/h_header_top.txt"
 #----------------------------------------------
-header_bot = "./Robot_Sem823/STM32/h_header_bottom.txt"
+header_bot = "./STM32/h_header_bottom.txt"
 #----------------------------------------------
-json_file = "./Robot_Sem823/py/Dico_BOT1/dictionnary.json"
+json_file = "./py/Dico_BOT1/dictionnary.json"
 #----------------------------------------------
-c_file = "./Robot_Sem823/STM32/dictionnary.h"
+c_file = "./STM32/dictionnary.h"
 #----------------------------------------------
 
 def add_inttoc(i):
