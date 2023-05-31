@@ -66,14 +66,14 @@ brancher une caméra à un port usb
 
 ## Gestion de l'UART Raspberry STM32
 
-/var/www/py/transmission.py -> gestion de l'uart raspberry - stm32
+*/var/www/py/transmission.py* -> gestion de l'uart raspberry - stm32
 
-	se lance automatiquement au lancement du raspberry.
-	relancer la commande `python /var/www/py/transmission.py` pour afficher les codes
+se lance automatiquement au lancement du raspberry.
+relancer la commande `python /var/www/py/transmission.py` pour afficher les codes
 
 ## Algorithme de plus court chemin
 
-/var/www/py/robotDriver.py -> mode automatique
+*/var/www/py/robotDriver.py* -> mode automatique
 
 ne se lance pas automatiquement, exécuter `python /var/www/py/robotDriver.py`
 utilise la caméra branchée au raspberry
