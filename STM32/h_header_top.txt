@@ -11,7 +11,6 @@ struct command_key {
     char param[20];
     char cmd_serializer[30];
     char unit[5];
-    char param[10];
     char cmd[5][10];
 };
 typedef struct command_key command_key;
