@@ -18,9 +18,8 @@
 		$fileArray=array_slice($fileArray,-9);
 	}
 	array_push($fileArray,$instruction);
-	foreach ($fileArray as $command){
-		fwrite($handler,$command);
-	}
+	for each
+	fwrite($handler,$fileArray) or die("Unable to write");
 	fclose($handler);
    }
 ?>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>B0-P1 access point</title>
-	<link rel="stylesheet" href="style3.css">
+	<link rel="stylesheet" href="style2.css">
 </head>
 <body onload="update()">
 	<?php include_once("Scripts.php") ?>
@@ -12,6 +12,10 @@
 	</header>
 	<main>
 		<div class="pc left-column">
+			<div class="pc blackbox">
+				<h3>Retour caméra</h3>
+				<video src="http://192.168.29.153:8081" type="video/mp4" controls autoplay></video>
+			</div>
 			<div>
 				<?php
 					$file="/var/www/html/instruction.txt";
@@ -52,9 +56,6 @@
 						ecrire($file,"f");
 						ecrireFin($log,"Ralentir\n");
 					}
-					if(isset($_POST['clear'])) {
-						ecrire($log,"");
-					}
 				?>
 			</div>
 			<div class="pc blackbox" id="commandes-boutons">
@@ -81,22 +82,12 @@
 			</div>
 		</div>
 		<div class="pc right-column">
-
 			<div class="pc blackbox" id="info-robot">
 				<h3>Infos robot</h3>
 				<div>
-
-
-					<p>Vitesse : <span id="vitesse">0</span> km/h</p>
-					<p>Obstacle : <span id="distance">OFF</span></p>
-					<p>Chemin : <span id="chemin">N/E</span></p>
-					<p>Actuel : <span id="actuel">0</span></p>
-
-					<div class="pc blackbox">
-                        		<a href="http://192.168.29.153:8081" target="_blank">
-                                	<button>camera</button>
-                        		</a></div>
-
+					<p>speed : <span id="vitesse">0</span> km/h</p>
+					<p>Distance : <span id="distance">OFF</span></p>
+					<p>direction : <span id="direction">N/E</span></p>
 				</div>
 			</div>
 			<div class="pc blackbox" id="commande-specifique">
@@ -109,13 +100,10 @@
 						<p id="log5">></p>
 						<p id="log4">></p>
 						<p id="log3">></p>
-						<p id="log2">></p>
-						<p id="log1">></p>
-						<p id="log0">></p>
+						<p id="log2">>Test3</p>
+						<p id="log1">>Test2</p>
+						<p id="log0">>Test1</p>
 					</div>
-					<form action="index.php" method="post">
-						<input type="submit" id="clear" name="clear" value="Clear">
-					</form>
 				</div>
 			</div>
 		</div>
@@ -133,9 +121,8 @@
 				if (this.readyState == 4 && this.status == 200) {
 					var myCapteurs = JSON.parse(this.responseText);
 					document.getElementById("distance").innerHTML = myCapteurs["ultrason"];
-					document.getElementById("prochain").innerHTML = myCapteurs["prochain"];
+					document.getElementById("direction").innerHTML = myCapteurs["direction"];
 					document.getElementById("vitesse").innerHTML = myCapteurs["vitesse"];
-					document.getElementById("chemin").innerHTML = myCapteurs["chemin"];
 					setTimeout(function(){updateData();}, 1000)
 				}
 			};
@@ -143,6 +130,7 @@
 			xhttp.send();
 		}
 		<?php
+			$logFile = "/var/www/html/log.txt";
 			$logFile = "/var/www/html/log.txt";
 			$handler = fopen($logFile,"r") or die("Unable to open log file");
 			$commandArray = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -161,6 +149,47 @@
 			}
 		}
 	</script>
+
+	<!-- <mobile>
+		<h2>
+			<p>B0-P1</p>
+		</h2>
+		<li>
+			<btn-menu id="btn-menu-boutons">
+				<img src="img/manette.png" class="icon-menu">
+			</btn-menu>
+			<btn-menu id="btn-menu-infos">
+				<img src="img/rapport.png" class="icon-menu">
+			</btn-menu>
+			<btn-menu id="btn-menu-cam">
+				<img src="img/camera.png" class="icon-menu">
+			</btn-menu>
+		</li>
+		<div-boutons>
+			<form action="index.php" method="post">
+				<div id="div-rotate">
+					<input type="submit" value="Avancer" name="avancer" id="avancer">
+				</div>
+				<div id="div-rotate">
+					<input type="submit" value="Gauche" name="gauche" id="gauche">
+					<input type="submit" value="STOP" name="stop" id="stop">
+					<input type="submit" value="Droite" name="droite" id="droite">
+				</div>
+				<div id="div-rotate">
+					<input type="submit" value="Reculer" name="reculer" id="reculer">
+				</div>
+				<p></p>
+				<div id="div-boutons-90">
+					<input type="submit" value="Gauche 90°" name="gauche 90°" id="gauche 90°">
+					<input type="submit" value="Droite 90°" name="droite 90°" id="droite 90°">
+				</div>
+				<div id="div-boutons-vitesse">
+					<input type="submit" value="Ralentir" name="ralentir" id="ralentir">
+					<input type="submit" value="Accélérer" name="accélérer" id="accélérer">
+				</div>
+			</form>
+		</div-boutons>
+	</mobile> -->
 </body>
 </html>
 

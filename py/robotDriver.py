@@ -7,7 +7,7 @@ from threading import Thread
 from calculataPath import Djikstra
 from QRCode import RecogniseQr
 import Dico_BOT1.DicoBOT1 as UART
-
+import importExcel
 
 
 
@@ -123,10 +123,10 @@ class BotMaster():
     # GOAL   : Calculate the fastest path between the starting and ending node and drive the robot from the start to the end
     #          by scanning QR code and sending information to the microcontroller using UART.
 
-        BOT1 = UART.DicoBOT1('py\Dico_BOT1\dictionnary.json')
-        BOT2 = UART.DicoBOT1('py\Dico_BOT1\dictionnary.json')
-        distance = self.excelToAdjacencyMatrix("py\map.xlsx")
-        
+        BOT1 = UART.DicoBOT1('Dico_BOT1/capteurs.json')
+        BOT2 = UART.DicoBOT1('Dico_BOT1/capteurs.json')
+        #distance = self.excelToAdjacencyMatrix("py\map.xlsx")
+        distance = importExcel.ImportExcel("map.xlsx").excelToAdjacencyMatrix()
         dji = Djikstra(distance)
         path = dji.actualisePath(startNode,endNode)
         msg_tosend = BOT1.addData('chemin',path)

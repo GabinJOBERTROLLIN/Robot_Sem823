@@ -2,11 +2,13 @@ import json
 
 class DicoBOT1():
     def __init__(self, file):
+        self.file = file
         # Lecture du dictionnaire
-        with open(file, 'r') as file:
-            self.json_dict = json.load(file)
+        with open(file, 'r') as f:
+            self.json_dict = json.load(f)
         self.end_char = chr(255)
-        self.json_path = "py\Dico_BOT1\dictionnary.json"
+        
+        self.json_path = "Dico_BOT1/dictionnary.json"
         self.instructionPath = "/var/www/html/instruction.txt"
 
 
@@ -16,12 +18,7 @@ class DicoBOT1():
             print(type(k),type(self.json_dict[k]))
             for i,v in enumerate(self.json_dict[k]):
                 print(v,type(v))
-    def convert_tochar(self, val, key):
-        delta = 253/(key["max_unit"]-key["min_unit"])
-        val = val*delta + 1
-        return chr(round(val))
-    
-    
+
     def encode(self, cmd, val=0):
     #Préparation d'une commande pour l'émission par UART
     #La commande fournit correspond au "cmd" du json
@@ -34,17 +31,19 @@ class DicoBOT1():
         #Formatage de la commande : modèle [cmd id][content][cara de fin]
         str_tosend = chr(key["id"])
         if key["content_size"] > 0:
-            str_tosend += self.convert_tochar(val,key)
+            str_tosend += chr(val)
         str_tosend += self.end_char
         return str_tosend
     
     def addData(self,key,data):
     #add data to json (not ready to be sent by UART)
-        with open(self.json_path,'r') as outfile:
+        with open(self.file,'r') as outfile:
             content = json.load(outfile)
+            #content(json.loads(content))
+            
         content[key]=data
 
-        with open(self.json_path,'w') as outfile:   
+        with open(self.file,'w') as outfile:   
             json.dump(content,outfile)
             print("voici le content" +str(content))
 
@@ -99,7 +98,7 @@ class DicoBOT1():
     
     def test():
         #Exemple de fonctionnement
-        BOT1 = DicoBOT1('py\Dico_BOT1\dictionnary.json')
+        BOT1 = DicoBOT1('Dico_BOT1\dictionnary.json')
 
         #Encodage d'un message pour émission dans l'UART :
         msg_tosend = BOT1.encode('ultrason',120)
@@ -113,5 +112,10 @@ class DicoBOT1():
         print("envoyé : "+msg_tosend)
         #Decodage du message pour traitement dans l'UART :
         msg_received = BOT1.decode(msg_tosend)
+<<<<<<< HEAD
         print("reçu : "+str(msg_received))
 DicoBOT1.test()
+=======
+        print(msg_received)
+DicoBOT1.test()
+>>>>>>> 2c956669fde703f0b909ef5d86af02085d783fb2
