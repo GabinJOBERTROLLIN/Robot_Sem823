@@ -29,7 +29,24 @@ La variable DIST_SECU permet de regler la distance en cm à partir de laquelle i
 En vous balandant dans le code, il est possible de changer les vitesses de rotation et en translation, elles sont déclarés en dure au début du code.
 
 # Partie logiciel
-## Mise en place de la raspberry
+## Structure des fichiers importants sur la raspberry
 
 ## Algorithme de plus court chemin
 Pur tester l'algorithme de chemin automatique utilisant la lecture de QR codes, vous pouvez lancer le fichier **robotDriver.py**, il faut ensuite montrer à la caméra les QR codes dans l'ordre décrit par le chemin. Ces QR codes se trouvent dans le fichier **QRcode>QRcodes**, vous pouvez aussi les trouver dans le fichier pdf **QRcodes** fournis dans le même dossier.   
+	-> /var/www/
+
+		-> /var/www/py/
+			-> transmission.py
+			-> robotDriver.py
+			-> mode.txt
+
+		-> /var/www/html/
+			-> index.php
+			-> style3.css
+			-> Scripts.php
+
+			-> instruction.txt
+			-> log.txt
+			-> capteurs.json
+
+##
