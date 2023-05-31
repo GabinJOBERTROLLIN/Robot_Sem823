@@ -49,4 +49,15 @@ Pur tester l'algorithme de chemin automatique utilisant la lecture de QR codes, 
 			-> log.txt
 			-> capteurs.json
 
-##
+## Utilisation du raspberry
+
+/var/www/py/transmission.py -> gestion de l'uart raspberry - stm32
+
+	se lance automatiquement au lancement du raspberry.
+	relancer la commande `python /var/www/py/transmission.py` pour afficher les codes
+
+/var/www/py/robotDriver.py -> mode automatique
+
+	NE SE LANCE PAS AUTOMATIQUEMENT, exécuter `python /var/www/py/robotDriver.py`
+	utilise la caméra branchée au raspberry
+	quelques erreurs d'intégration
