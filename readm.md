@@ -31,8 +31,6 @@ Si vous rencontrez un probleme sur l'execution des données sur l'UART, verifier
 Dans le main vous pourrez retrouver l'implémentation de l'algorithme de suivi de ligne ainsi que la façon dont les commandes sont envoyés à la carte serializer.
 Des interruptions permettent de calculer la distance séparant le robot et un obstacle situé devant lui.
 
-
-<<<<<<< HEAD
 ## Encodage de la liaison UART
 Cette partie n'est pas implémentée dans l'intégration du projet. Néanmoins on peut retrouver le code produit dans la section py/Dico_BOT1. Il fournit des fonctions qui interpretent une liste de commandes (dictionnary.json). A haut niveau on peut donc associer une commande au format chaine de caractère intuitive "stop", "avancer" ... et la code pour l'émission en direction de la STM32.
 
