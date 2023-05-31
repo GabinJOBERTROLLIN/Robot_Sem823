@@ -31,20 +31,20 @@ En vous balandant dans le code, il est possible de changer les vitesses de rotat
 # Partie logiciel
 ## Structure des fichiers importants sur la raspberry
 
-/var/www/
-	-> /var/www/py/
-		-> transmission.py
-		-> robotDriver.py
+	-> /var/www/
 
-		-> mode.txt
+		-> /var/www/py/
+			-> transmission.py
+			-> robotDriver.py
+			-> mode.txt
 
-	-> /var/www/html/
-		-> index.php
-		-> style3.css
-		-> Scripts.php
+		-> /var/www/html/
+			-> index.php
+			-> style3.css
+			-> Scripts.php
 
-     		-> instruction.txt
-		-> log.txt
-		-> capteurs.json
+			-> instruction.txt
+			-> log.txt
+			-> capteurs.json
 
 ##
