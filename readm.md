@@ -37,7 +37,7 @@ Des interruptions permettent de calculer la distance séparant le robot et un ob
 Cette partie n'est pas implémentée dans l'intégration du projet. Néanmoins on peut retrouver le code produit dans la section py/Dico_BOT1. Il fournit des fonctions qui interpretent une liste de commandes (dictionnary.json). A haut niveau on peut donc associer une commande au format chaine de caractère intuitive "stop", "avancer" ... et la code pour l'émission en direction de la STM32.
 
 Le fichier JSON n'est pas directement interprétable sur la STM32 ainsi on réalise une conversion du dictionnaire en une liste d'un struct que nous avons developpé. Le fichier permettant la conversion est le script "file_convert.py". Il génére alors dynamiquement à l'aide des h_header_bottom/h_header_top cette fameuse liste de commande dans "dictionnary.h". Les implémentations des fonctions sont dans "dictionnary.c".
-=======
+
 ## Branchements sur la Raspberry
 
 brancher les pins de l'uart à la stm32
