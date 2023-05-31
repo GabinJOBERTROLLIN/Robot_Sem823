@@ -1,6 +1,8 @@
 import cv2
 from pyzbar import pyzbar
-
+import qrcode
+import pandas as pd
+import importExcel
 
 
 
@@ -44,6 +46,31 @@ def Recognize(result):
     cap.release()
     cv2.destroyAllWindows()
     result.append(data)
+
+
+def generate():
+    # Créer une liste de 9 numéros de 0 à 8
+    numeros = list(range(9))
+
+    # Créer un dictionnaire avec les directions du voisinage de 4 pour chaque numéro
+    voisinage = importExcel.ImportExcel("py\map.xlsx").excelToVoisinage()
+    #voisinage = excelToVoisinage("py\map.xlsx")
+    #print(voisinage)
+
+    # Parcourir les numéros et générer les codes QR correspondants
+    for numero in numeros:
+        # Créer les données pour le code QR
+        data = str(numero) + ";"
+        for direction, voisin in voisinage[numero].items():
+            data += f"{voisin}:{direction},"
+        data = data 
+        # Générer le code QR avec les données
+        qr = qrcode.QRCode(version=1, box_size=10, border=4)
+        qr.add_data(data)
+        qr.make(fit=True)
+            
+        # Enregistrer le code QR dans un fichier PNG avec le nom correspondant au numéro
+        qr.make_image(fill_color="black", back_color="white").save(f"py\QRCode\QRCodes\{numero}.png")
 
 
 

@@ -8,8 +8,8 @@ class DicoBOT1():
             self.json_dict = json.load(f)
         self.end_char = chr(255)
         
-        self.json_path = "Dico_BOT1/dictionnary.json"
-        self.instructionPath = "/var/www/html/instruction.txt"
+        self.json_path = "py/Dico_BOT1/dictionnary.json"
+        self.instructionPath = "py/instruction.txt"
 
 
     def print(self):
@@ -45,18 +45,18 @@ class DicoBOT1():
 
         with open(self.file,'w') as outfile:   
             json.dump(content,outfile)
-            print("voici le content" +str(content))
+            #print("voici le content" +str(content))
 
     def writeInstruction(self,data):
         with open(self.instructionPath,'w') as outfile:   
             json.dump(data,outfile)
-            print("voici le content" +str(data))
+            #print("voici le content" +str(data))
 
 
     def encodeDecode(self,cmd,val=0):
     #encode and decode
         ret = self.encode(cmd,val)
-        print(ret)
+        #print(ret)
         return self.decode(ret)
     
 
@@ -98,7 +98,7 @@ class DicoBOT1():
     
     def test():
         #Exemple de fonctionnement
-        BOT1 = DicoBOT1('Dico_BOT1\dictionnary.json')
+        BOT1 = DicoBOT1('py/Dico_BOT1/dictionnary.json')
 
         #Encodage d'un message pour émission dans l'UART :
         msg_tosend = BOT1.encode('ultrason',120)
