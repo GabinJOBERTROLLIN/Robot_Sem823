@@ -73,5 +73,5 @@ class ImportExcel():
         
         return mapDataframe.to_dict('index')
     
-obj = ImportExcel("map.xlsx")    
-print(obj.excelToAdjacencyMatrix())
+obj = ImportExcel("py/map.xlsx")    
+#print(obj.excelToAdjacencyMatrix())
