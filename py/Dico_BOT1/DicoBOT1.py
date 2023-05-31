@@ -102,15 +102,20 @@ class DicoBOT1():
 
         #Encodage d'un message pour émission dans l'UART :
         msg_tosend = BOT1.encode('ultrason',120)
-        print("tosend"+str(msg_tosend))
+        print("envoyé : "+msg_tosend)
         #Decodage du message pour traitement dans l'UART :
         msg_received = BOT1.decode(msg_tosend)
-        print(msg_received)
+        print("reçu : "+str(msg_received))
 
         #Avec une commande quelconque :
         msg_tosend = BOT1.encode('stop')
-        print(msg_tosend)
+        print("envoyé : "+msg_tosend)
         #Decodage du message pour traitement dans l'UART :
         msg_received = BOT1.decode(msg_tosend)
+<<<<<<< HEAD
+        print("reçu : "+str(msg_received))
+DicoBOT1.test()
+=======
         print(msg_received)
-#DicoBOT1.test()
+DicoBOT1.test()
+>>>>>>> 2c956669fde703f0b909ef5d86af02085d783fb2
