@@ -31,4 +31,5 @@ En vous balandant dans le code, il est possible de changer les vitesses de rotat
 # Partie logiciel
 ## Mise en place de la raspberry
 
-##
+## Algorithme de plus court chemin
+Pur tester l'algorithme de chemin automatique utilisant la lecture de QR codes, vous pouvez lancer le fichier **robotDriver.py**, il faut ensuite montrer à la caméra les QR codes dans l'ordre décrit par le chemin. Ces QR codes se trouvent dans le fichier **QRcode>QRcodes**, vous pouvez aussi les trouver dans le fichier pdf **QRcodes** fournis dans le même dossier.   
