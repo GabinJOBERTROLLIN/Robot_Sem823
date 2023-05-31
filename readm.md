@@ -29,6 +29,22 @@ La variable DIST_SECU permet de regler la distance en cm à partir de laquelle i
 En vous balandant dans le code, il est possible de changer les vitesses de rotation et en translation, elles sont déclarés en dure au début du code.
 
 # Partie logiciel
-## Mise en place de la raspberry
+## Structure des fichiers importants sur la raspberry
+
+/var/www/
+	-> /var/www/py/
+		-> transmission.py
+		-> robotDriver.py
+
+		-> mode.txt
+
+	-> /var/www/html/
+		-> index.php
+		-> style3.css
+		-> Scripts.php
+
+     		-> instruction.txt
+		-> log.txt
+		-> capteurs.json
 
 ##
