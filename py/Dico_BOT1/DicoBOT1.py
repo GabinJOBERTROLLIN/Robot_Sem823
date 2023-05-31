@@ -112,10 +112,5 @@ class DicoBOT1():
         print("envoyé : "+msg_tosend)
         #Decodage du message pour traitement dans l'UART :
         msg_received = BOT1.decode(msg_tosend)
-<<<<<<< HEAD
         print("reçu : "+str(msg_received))
 DicoBOT1.test()
-=======
-        print(msg_received)
-DicoBOT1.test()
->>>>>>> 2c956669fde703f0b909ef5d86af02085d783fb2
